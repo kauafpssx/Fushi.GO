@@ -4,7 +4,7 @@ import { useAuthStore } from '../app/store'
 import { BottomNav } from '../components/BottomNav/BottomNav'
 
 export function Layout() {
-  const { isAuthenticated, register, session } = useAuthStore()
+  const { register, session } = useAuthStore()
   const [authReady, setAuthReady] = useState(false)
 
   useEffect(() => {

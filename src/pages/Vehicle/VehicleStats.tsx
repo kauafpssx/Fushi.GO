@@ -16,7 +16,6 @@ export function VehicleStats({ vehicle, distanceToStopMeters, etaSeconds, isLive
   const [showAbsolute, setShowAbsolute] = useState(false)
   const rawSpeed = isLive ? (vehicle.averageSpeed as number | undefined) : undefined
   const speed = rawSpeed != null ? Math.round(rawSpeed * 3.6) : null
-  const etaLabel = etaSeconds == null ? null : formatSecondsToMinutes(etaSeconds)
   const distanceToNextStop = isLive ? (vehicle.distanceToNextStop as number | undefined) : undefined
   const distanceLabel =
     distanceToStopMeters != null

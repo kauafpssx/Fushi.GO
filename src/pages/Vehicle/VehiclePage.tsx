@@ -10,7 +10,7 @@ import { VehicleRouteMap, type VehicleRouteMapHandle } from './VehicleRouteMap'
 import { BottomNav } from '../../components/BottomNav/BottomNav'
 
 export function VehiclePage() {
-  const { routeCode, serviceSlug, stopSlug } = useParams<{ routeCode: string; serviceSlug: string; stopSlug: string }>()
+  useParams<{ routeCode: string; serviceSlug: string; stopSlug: string }>()
   const navigate = useNavigate()
   const location = useLocation()
 

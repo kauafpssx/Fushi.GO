@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import { useQuery } from '@tanstack/react-query'
-import { useSearchParams } from 'react-router-dom'
+
 import { Flag, Navigation, ChevronRight, EyeOff, MapPin } from 'lucide-react'
 import { api } from '../../shared/api/http'
 import { V1_BASE } from '../../shared/constants'
@@ -51,16 +51,7 @@ export function StopTimeline({
 
   const stops = response?.stops ?? []
   const rowRefs = useRef<Map<string, HTMLDivElement>>(new Map())
-  const [, setSearchParams] = useSearchParams()
   const [showPassed, setShowPassed] = useState(false)
-
-  const openStop = (stopId: string) => {
-    setSearchParams((prev) => {
-      const next = new URLSearchParams(prev)
-      next.set('stopId', stopId)
-      return next
-    })
-  }
 
   const closest = vehiclePosition
     ? stops.reduce(

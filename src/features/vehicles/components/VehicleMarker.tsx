@@ -3,6 +3,13 @@ import maplibregl from 'maplibre-gl'
 import type { VehicleDTO } from '../../../domain/Vehicle/VehicleMapper'
 import { BUS_PATH } from '../../../shared/utils/svgPaths'
 
+interface VehicleMarkerProps {
+  vehicle: VehicleDTO
+  map: maplibregl.Map
+  isSelected: boolean
+  onSelect: (id: string) => void
+}
+
 const BUS_SVG = `<svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path d="${BUS_PATH}" fill="#1d2024"/>
 </svg>`

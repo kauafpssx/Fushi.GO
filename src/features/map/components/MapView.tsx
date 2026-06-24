@@ -302,7 +302,7 @@ export function MapView() {
           async () => {
             const [lng, lat] = config.map.defaultCenter
 
-            let targetZoom = config.map.defaultZoom
+            let targetZoom: number = config.map.defaultZoom
 
             try {
               const rec = await getViewportRecommendation(lat, lng)
