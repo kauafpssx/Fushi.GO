@@ -1,6 +1,7 @@
 import { create } from 'zustand'
 import type { AuthSession } from '../types'
 import { setAuthHeaderProvider } from '../../../shared/api/http'
+import { config } from '../../../app/config'
 
 interface AuthState {
   session: AuthSession | null
@@ -61,7 +62,7 @@ export const useAuthStore = create<AuthState>((set, get) => {
     register: async (deviceId: string) => {
       storeDeviceId(deviceId)
 
-      const res = await fetch('/api/auth/register', {
+      const res = await fetch(`${config.api.baseUrl}/api/auth/register`, {
         method: 'POST',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify({ deviceId }),
@@ -80,7 +81,7 @@ export const useAuthStore = create<AuthState>((set, get) => {
       const s = get().session
       if (!s) return
 
-      const res = await fetch('/api/auth/refresh', {
+      const res = await fetch(`${config.api.baseUrl}/api/auth/refresh`, {
         method: 'POST',
         headers: {
           'X-Device-Id': s.deviceId,
